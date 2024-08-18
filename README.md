@@ -1,18 +1,35 @@
 # ♒Detecting River Water Quality 
 
+
+<p align='center'>
+  <img src='Media/Proto3Deployed.gif' alt="Final deployment in the River Lea"  />
+</p>
+<br/>
+
 ## Contents
 - [Overview](#overview) 
 - [Features](#features) 
 - [Hardware Components](#hardware-components) 
 - [Set-up](#set-up) 
-- [Usage](#usage) 
-- [Contributing](#contributing) 
+- [Usage](#usage)
+- [Thanks](#Thanks) 
 - [License](#license) 
 - [Contact](#contact)
 
+
 ## Overview
+<p align='center'>
+  <img src='Media/proto3Close.jpg' alt="Prototype #3 before deployment" width=250 />
+ </p>
 This project created an IoT device that monitors river water quality in real-time. It detects temperature, electrical conductivity (EC) and the colour properties of water. It is an in-situ autonomous device that harvests solar energy and stores it in recycled vape batteries. The MCU is an Arduino MKR 1310 which sends the data over LoRa. The aim is to allow a user to remotely understand the changing water conditions to identify potential pollution events.
 This project formed part of UCL Connected Environments MSc which concluded with an exhibition. This git also includes the exhibit details.
+
+<p align='center'>
+  <img src='Media/EastcrossBridgeOutfall1a.png' alt="Location of deployment" height=250 />
+  <img src='Media/EastcrossBridgeOutfall2a.png' alt="Deployment site" height=250 />
+  <img src='Media/Proto3Deploy2.jpg' alt="Prototype #3 being deployed" height=250 />
+ 
+ </p>
  
 ## Features
 - A custom 4-pole, graphite EC sensor
@@ -21,6 +38,7 @@ This project formed part of UCL Connected Environments MSc which concluded with 
 - LoRaWAN data transfer using Arduino MKR 1310
 - Powered by a solar cell and upcycled vape batteries!
 
+
 ## Hardware Components 
 - **Temperature Sensor** DS18B20
 - **TCS34725 Colour Sensor**: [Learn more](https://www.waveshare.com/wiki/TCS34725_Color_Sensor) 
@@ -28,17 +46,50 @@ This project formed part of UCL Connected Environments MSc which concluded with 
 - **Arduino MKR1310 MCU** 
 - **Solar Panel and Recycled Vape Batteries**
 
+
 ## Set-up
 ### Enclosure
 The enclosure for this device was 3D printed with PLA and coated in an eco-friendly epoxy to waterproof it (tip: mixed results with this approach so thoroughly test how waterproof your final enclosure is). The files are in the *FusionFiles* directory. The float designs are included BUT the prototype deployed using these sank. The last version was deployed using a child’s kickboard as its float, which worked very well.
+
+<p align='center'>
+ The issues causes by not being waterproof can be seen below!
+
+</p>
+<p align='center'>
+  <img src='Media/Proto1Fail2.jpg' alt="A sunken prototype #1 being retrived" width=250 />
+  <img src='Media/Proto1Fail.jpg' alt="Prototype #1 after retrieval" width=250 />
+ </p>
+ 
 ### Sensors
 #### Electrical Conductivity (EC)
 The EC sensor uses a 4-pole design to reduce electrolysis and increase the accuracy of the sensor. Graphite was used for electrodes for its high conductivity and resistance to electrolysis. The prototypes used 2mm 8B graphite to maximise the conductivity of the graphite but, due to its softness, this is difficult to work with. A conductive glue was used to attach the electrode to the wire.
 The current oscillates from the two outer poles, with the two inner poles measuring the voltage. A third voltage measurement is taken across one of the resistors connected to the outer poles. 
+<p align='center'>
+   <img src='Media/ElectrodeHolder.png' alt="3D model of the electrode holder" width=250 />
+ 
+   <img src='Media/GraphiteProbeConductiveGlue.jpg' alt="Photo of the 4 wires attached to the graphite electrodes with conductive glue" width=250 />
+ </p>
+
 #### TCS34725
 To detect the colour of the water, light was emitted from a white LED, transmitted through the water and detected by the TCS34725. The sensor is keep away from the water by using optical fibre to transfer the light into and out of the water. An early version made use of the sensor’s onboard LED using backscattered light for colour detection but the results were poor which led to the latest design where light source is directed at the sensor.
+<p align='center'>
+   <img src='Media/TCS34725.jpg' alt="Photo of the TCS34725" width=250 />
+   <img src='Media/FOHolder.jpg' alt="Photo of the Optical Fibre holder" width=250 />
+ </p>
+
+
 #### DS18B20
 The temperature sensor had no modifications and has the standard 4.7k ohm resistor setup. https://www.researchgate.net/figure/Design-of-Ds1820-Temperature-Sensor_fig3_260944398
+#### Circuit
+Below are the circuit diagrams. Through testing 510 ohm resistors were found to give the most sensitive results for pure water to sea water salinity levels.
+
+A custom PCB was used for the final build. Files are in the *FusionFiles/PCB* folder. The resistor component had a short in the protoype. That is corrected in these files. The schematic is correct but make sure to double check the PCB if this to be used.
+
+<p align='center'>
+  <img src='Media/CircuitSchematic.png' alt="Schematic for the circuit" width=300 />
+  <img src='Media/PCB.png' alt="PCB Design" width=300 />
+  <img src='Media/PCB2.jpg' alt="Image of the actual PCB" width=300 />
+ </p>
 
 ### Code
 *Prod_RiverWaterQuality* holds the Arduino code for the final version. Multiple boards and sensors were tested before arriving at this version. Some of the code for those is stored in the *InitalScripts* directory.  
@@ -186,6 +237,11 @@ void sendLora(){
 }
 
 ```
+
+## Thanks
+ - Dr Izzy Bishop (UCL) for input and help deploying the devices
+ - Lewis Elmes (Environment Agency) for approving the deployments
+
 ## License
 MIT License
 
