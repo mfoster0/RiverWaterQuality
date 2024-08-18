@@ -1,4 +1,4 @@
-# Detecting River Water Quality 
+# ♒Detecting River Water Quality 
 
 ## Contents
 - [Overview](#overview) 
@@ -6,7 +6,6 @@
 - [Hardware Components](#hardware-components) 
 - [Set-up](#set-up) 
 - [Usage](#usage) 
-- [Data Transmission](#data-transmission) 
 - [Contributing](#contributing) 
 - [License](#license) 
 - [Contact](#contact)
