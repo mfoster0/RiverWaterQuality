@@ -23,6 +23,7 @@
  </p>
 This project created an IoT device that monitors river water quality in real-time. It detects temperature, electrical conductivity (EC) and the colour properties of water. It is an in-situ autonomous device that harvests solar energy and stores it in recycled vape batteries. The MCU is an Arduino MKR 1310 which sends the data over LoRa. The aim is to allow a user to remotely understand the changing water conditions to identify potential pollution events.
 This project formed part of UCL Connected Environments MSc which concluded with an exhibition. This git also includes the exhibit details.
+<br/>
 
 <p align='center'>
   <img src='Media/EastcrossBridgeOutfall1a.png' alt="Location of deployment" height=250 />
@@ -65,6 +66,9 @@ The enclosure for this device was 3D printed with PLA and coated in an eco-frien
 The EC sensor uses a 4-pole design to reduce electrolysis and increase the accuracy of the sensor. Graphite was used for electrodes for its high conductivity and resistance to electrolysis. The prototypes used 2mm 8B graphite to maximise the conductivity of the graphite but, due to its softness, this is difficult to work with. A conductive glue was used to attach the electrode to the wire.
 The current oscillates from the two outer poles, with the two inner poles measuring the voltage. A third voltage measurement is taken across one of the resistors connected to the outer poles. 
 <p align='center'>
+ Below are images of the electrode holder 3D model and the graphite electrodes attached using conductive glue.
+</p>
+<p align='center'>
    <img src='Media/ElectrodeHolder.png' alt="3D model of the electrode holder" width=250 />
  
    <img src='Media/GraphiteProbeConductiveGlue.jpg' alt="Photo of the 4 wires attached to the graphite electrodes with conductive glue" width=250 />
@@ -72,6 +76,9 @@ The current oscillates from the two outer poles, with the two inner poles measur
 
 #### TCS34725
 To detect the colour of the water, light was emitted from a white LED, transmitted through the water and detected by the TCS34725. The sensor is keep away from the water by using optical fibre to transfer the light into and out of the water. An early version made use of the sensor’s onboard LED using backscattered light for colour detection but the results were poor which led to the latest design where light source is directed at the sensor.
+<p align='center'>
+ Below are the TCS34725 sensor and 3D print of optical fibre frame with its water chamber visible in the center
+</p>
 <p align='center'>
    <img src='Media/TCS34725.jpg' alt="Photo of the TCS34725" width=250 />
    <img src='Media/FOHolder.jpg' alt="Photo of the Optical Fibre holder" width=250 />
